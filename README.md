@@ -1,2 +1,20 @@
 # resource-repository
 <h1>学习资源共享仓库</h1>
+<hr/>
+<p>
+  本仓库为学习资源共享所用，可以将学习中碰到的问题，demo，代码及相关文献资料上传。以备给本仓库其余成员共享学习，共同进步。
+</p>
+<h2>项目目录</h2>
+<em>目前暂设</em>
+<ul>
+  <li>web前端基础</li>
+  <li>jQuery相关</li>
+  <li>vue相关</li>
+  <li>react相关</li>
+  <li>python基础</li>
+  <li>python爬虫</li>
+  <li>python大数据</li>
+  <li>数据结构及算法</li>
+  <li>数据分析</li>
+</ul>
+<p>个人暂时更新web相关，基础中放置CDN直接引入的简单demo及相关代码，框架相关的代码均由脚手架拉取webpack基础包构建</p>
