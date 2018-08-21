@@ -7,7 +7,6 @@
 <h2>项目目录</h2>
 <em>目前暂设</em>
 <ul>
-  <li>web前端基础</li>
   <li>jQuery相关</li>
   <li>vue相关</li>
   <li>react相关</li>
