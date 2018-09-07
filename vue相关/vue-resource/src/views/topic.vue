@@ -8,38 +8,38 @@
 </template>
 
 <script>
-  export default {
-    data(){
-      return {
-        topList: [],
-        dataList: []
+export default {
+  data () {
+    return {
+      topList: [],
+      dataList: []
+    }
+  },
+  created () {
+    fetch('../../static/topData.json').then(res => res.json()).then(res => {
+      this.dataList = res
+    })
+  },
+  methods: {
+    toTop (ite, i) {
+      if (!ite.isTop) {
+        ite.isTop = true
+        let ele = this.dataList.splice(i, 1)[0]
+        this.topList.push(ele)
+        this.topList.sort((a, b) => a.order - b.order)
+        console.log(this.topList)
       }
     },
-    created() {
-      fetch('../../static/topData.json').then(res=>res.json()).then(res=>{
-        this.dataList = res;
-      });
-    },
-    methods:{
-      toTop(ite,i){
-        if (!ite.isTop){
-          ite.isTop = true;
-          let ele = this.dataList.splice(i,1)[0];
-          this.topList.push(ele);
-          this.topList.sort((a,b)=>a.order-b.order);
-          console.log(this.topList)
-        }
-      },
-      cancleTop(ite,i){
-        if (ite.isTop){
-          ite.isTop = false;
-          let ele = this.topList.splice(i,1)[0];
-          this.dataList.push(ele);
-          this.dataList.sort((a,b)=>a.order-b.order);
-        }
+    cancleTop (ite, i) {
+      if (ite.isTop) {
+        ite.isTop = false
+        let ele = this.topList.splice(i, 1)[0]
+        this.dataList.push(ele)
+        this.dataList.sort((a, b) => a.order - b.order)
       }
     }
   }
+}
 </script>
 
 <style>

@@ -1,13 +1,37 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <router-view/>
+    <Sidebar/>
+    <div class="main"
+         :style="{marginLeft:mgLeft}">
+      <Nav></Nav>
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
+import Sidebar from './components/sidebar'
+import Nav from './components/nav'
+import { mapState } from 'vuex'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Sidebar, Nav
+  },
+  data () {
+    return {
+
+    }
+  },
+  computed: {
+    ...mapState(['navigator']),
+    mgLeft () {
+      return this.navigator.isCollapse ? '64px' : '200px'
+    }
+  },
+  created () {
+
+  }
 }
 </script>
 
@@ -18,6 +42,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+}
+#app > .main {
+  padding: 0 10px;
 }
 </style>
