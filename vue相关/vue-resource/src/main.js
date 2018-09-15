@@ -4,12 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import _ from 'underscore'
 import 'normalize.css'
 import ElementUi from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import VueCountUp from 'vue-countupjs'
+import '../static/common/iconfont.css'
+// import VueCountUp from 'vue-countupjs'
 
 Vue.config.productionTip = false
 NProgress.inc(0.2)
@@ -24,7 +26,8 @@ router.afterEach(() => {
 })
 
 Vue.use(ElementUi)
-Vue.use(VueCountUp)
+Vue.prototype._ = _
+// Vue.use(VueCountUp)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
