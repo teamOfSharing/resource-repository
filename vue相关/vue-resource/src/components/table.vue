@@ -1,18 +1,12 @@
 <template>
   <div>
-    color
+    table
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      coclor: [
 
-      ]
-    }
-  }
 }
 </script>
 
