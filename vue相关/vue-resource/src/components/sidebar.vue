@@ -57,7 +57,7 @@ export default {
     //   return [...menu.entries()]
     // },
     sidebarWidth () {
-      return this.navigator.isCollapse ? '' : '200px'
+      return this.navigator.isCollapse ? '' : this.navigator.unCollapseWidth
     }
   },
   methods: {
@@ -91,6 +91,11 @@ export default {
   background-color: rgb(84, 92, 100);
   .el-menu {
     border-right: none;
+  }
+  .el-submenu .el-menu-item {
+    // padding: 0 !important;
+    text-align: center;
+    min-width: 140px;
   }
 }
 </style>

@@ -1,13 +1,18 @@
 <template>
   <div class="home">
-    home
-    <i class="vr-iconfont vr-icon-CI">&nbsp;&nbsp;</i>
-    <CountUp @finish="finish">
-      <span slot="left-text">左边的文字</span>
-      <span slot="right-text">右边的</span>
-    </CountUp>
-    <color-change/>
+    <el-row :gutter="20"
+            style="margin-bottom:10px">
+      <el-col v-for="card in cards"
+              :key="card.order"
+              :span="6">
+        <Card :bg="card.bg"
+              :icon="card.icon"
+              :contain="card.contain"
+              :countTo="card.countTo" />
+      </el-col>
+    </el-row>
     <Chart on="chart1" />
+    <ToDoList/>
   </div>
 </template>
 
@@ -15,12 +20,49 @@
 import CountUp from '../components/countUp'
 import ColorChange from '../components/colorChange'
 import Chart from '../components/chart'
+import ToDoList from '../components/toDoList.vue'
+import Card from '../components/card'
+
 import chartBus from '../bus/chartBus'
 
 export default {
   name: 'Home',
   components: {
-    CountUp, ColorChange, Chart
+    CountUp, ColorChange, Chart, ToDoList, Card
+  },
+  data () {
+    return {
+      cards: [
+        {
+          order: 1,
+          icon: 'vr-icon-star',
+          contain: 'Stars',
+          bg: '#e6a23c',
+          countTo: 1999
+        },
+        {
+          order: 2,
+          icon: 'vr-icon-radarchart',
+          contain: 'Abilities',
+          bg: '#f56c6c',
+          countTo: 50.50
+        },
+        {
+          order: 3,
+          icon: 'vr-icon-table',
+          contain: 'Visitors',
+          bg: '#67c23a',
+          countTo: 2223
+        },
+        {
+          order: 4,
+          icon: 'vr-icon-linechart',
+          contain: 'flows',
+          bg: '#409eff',
+          countTo: 34562
+        }
+      ]
+    }
   },
   mounted () {
     this.chart1()
@@ -143,7 +185,7 @@ export default {
 <style lang="scss">
 // @import url("../assets/common/iconfont.css");
 @import "../styles/color";
-.home {
-  color: $blue;
-}
+// .home {
+//   color: $blue;
+// }
 </style>

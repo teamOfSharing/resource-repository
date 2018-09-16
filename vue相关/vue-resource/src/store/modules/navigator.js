@@ -14,7 +14,8 @@ export default {
   state: {
     isCollapse: false,
     menuList: [...menu.entries()],
-    activeMenus: []
+    activeMenus: [],
+    unCollapseWidth: '140px'
     // mgLeft: '116px'
   },
   mutations

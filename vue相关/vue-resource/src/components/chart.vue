@@ -1,5 +1,6 @@
 <template>
-  <div class="charts" v-if="on"
+  <div class="charts"
+       v-if="on"
        :class="isFullScreen ? 'full-screen' : ''">
     <div class="chart-header">
       <span class="wrap-title">
@@ -42,13 +43,14 @@ export default {
   methods: {
     resizeCharts () {
       this.isFullScreen = !this.isFullScreen
+      this._.debounce(this.resize, 100)()
     },
     initChart () {
       if (this.chart) {
         this.chart.clear()
         return
       }
-      this.chart = echarts.init(document.querySelector('.chart-body'))
+      this.chart = echarts.init(this.$el.querySelector('.chart-body'))
     },
     resize () {
       if (this.chart) {
@@ -84,7 +86,7 @@ export default {
 @import "../styles/color";
 .charts {
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: #fff;
   .chart-header {
     display: flex;
     justify-content: space-between;

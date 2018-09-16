@@ -41,7 +41,7 @@ export default {
 
   },
   mounted () {
-    let dom = document.querySelector('.count-target')
+    let dom = this.$el.querySelector('.count-target')
     let oCount = new CountUp(dom, this.startV, this.endV, this.decimals, this.duration)
     oCount.start(this.onReady)
   },
