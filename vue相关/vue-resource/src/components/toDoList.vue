@@ -19,6 +19,8 @@
 
 <script>
 import formatTime from '../utils/formatTime'
+import { serverToDoList } from '../api/api'
+import axios from 'axios'
 
 export default {
   data () {
@@ -64,6 +66,12 @@ export default {
     this.iniData()
     this.thingList.forEach(thing => {
       this.$set(thing, 'timeStr', formatTime(thing.finishTime))
+    })
+    serverToDoList({ test: 'test' }).then(res => {
+      console.log(res)
+    })
+    axios.post('/servers/thingsToDo', { test: 'test' }).then(res => {
+      console.log(res)
     })
   },
   methods: {

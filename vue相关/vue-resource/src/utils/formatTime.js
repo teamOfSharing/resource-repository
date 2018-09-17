@@ -9,9 +9,9 @@
 */
 
 function formatTime (time, formatter = 'Y-M-D h:m:s') {
-  let date = null,
-    timeStr = null,
-    cformatter = formatter
+  var date = null
+  var timeStr = null
+  var cformatter = formatter
   if (typeof time === 'object') {
     date = time
   } else {

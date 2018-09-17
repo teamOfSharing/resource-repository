@@ -13,6 +13,7 @@ function mockToDoList () {
     }
     data.push(thing)
   }
+  return data
 }
 
 Mock.mock('/servers/thingsToDo', 'post', mockToDoList)
