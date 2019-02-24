@@ -22,6 +22,7 @@ import ColorChange from '../components/colorChange'
 import Chart from '../components/chart'
 import ToDoList from '../components/toDoList.vue'
 import Card from '../components/card'
+import Kscreenshot from 'kscreenshot'
 
 import chartBus from '../bus/chartBus'
 
@@ -61,11 +62,35 @@ export default {
           bg: '#409eff',
           countTo: 34562
         }
-      ]
+      ],
+      kscreenshot: null,
+      toolshow: {
+        complete: true,
+        quit: true,
+        back: true,
+        arrow: true,
+        drawLine: true,
+        rect: true,
+        ellipse: true,
+        text: true,
+        color: true
+      }
     }
   },
   mounted () {
     this.chart1()
+    this.kscreenshot = new Kscreenshot({
+      key: 65,
+      toolshow: this.toolshow,
+      copyPath () {
+        return null
+      },
+      needDownload: true,
+      endCB () {
+        console.log(this.kscreenshot, '截图完成')
+      },
+      immediately: false
+    })
   },
   methods: {
     finish () {

@@ -14,6 +14,10 @@
         <span class="time">{{thing.timeStr}}</span>
       </li>
     </ul>
+    <p class="selectAll"><input type="checkbox"
+             v-model="checked"
+             name=""
+             id="">全选</p>
   </div>
 </template>
 
@@ -25,6 +29,7 @@ import axios from 'axios'
 export default {
   data () {
     return {
+      // checked: null,
       thingList: [
         {
           toDo: '学习ES6语法',
@@ -62,6 +67,18 @@ export default {
       deep: true
     }
   },
+  computed: {
+    checked: {
+      get () {
+        return this.thingList.every(thing => thing.isFinished === true)
+      },
+      set (value) {
+        this.thingList.forEach(thing => {
+          thing.isFinished = value
+        })
+      }
+    }
+  },
   created () {
     this.iniData()
     this.thingList.forEach(thing => {
@@ -70,8 +87,8 @@ export default {
     serverToDoList({ test: 'test' }).then(res => {
       console.log(res)
     })
-    axios.post('/servers/thingsToDo', { test: 'test' }).then(res => {
-      console.log(res)
+    axios.post('/servers/train/station', { test: 'test' }).then(res => {
+      console.log(res, 'mockTrain')
     })
   },
   methods: {
@@ -116,6 +133,11 @@ export default {
   .time {
     color: $grey;
     font-size: 12px;
+  }
+  .selectAll {
+    margin: 0;
+    padding-left: 10px;
+    text-align: left;
   }
 }
 </style>

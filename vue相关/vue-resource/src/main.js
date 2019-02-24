@@ -12,6 +12,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import '../static/common/iconfont.css'
 import './mock/mock'
+// import './directives'
 // import VueCountUp from 'vue-countupjs'
 
 Vue.config.productionTip = false
