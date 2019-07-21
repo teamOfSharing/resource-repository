@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>{{test}}</h1>
     <Sidebar/>
     <div class="main"
          :style="{marginLeft:mgLeft}">
@@ -20,7 +21,7 @@ export default {
   },
   data () {
     return {
-
+      test: 'zd'
     }
   },
   computed: {
@@ -29,9 +30,25 @@ export default {
       return this.navigator.isCollapse ? '64px' : this.navigator.unCollapseWidth
     }
   },
+  beforeCreate () {
+    console.log('beforeCreate', this)
+  },
   created () {
-
+    console.log('created', this)
+  },
+  beforeMount () {
+    console.log('beforeMount', this)
+  },
+  mounted () {
+    console.log('mounted', this)
+  },
+  beforeUpdate () {
+    console.log('beforeUpdate', this)
+  },
+  updated () {
+    console.log('updated', this)
   }
+
 }
 </script>
 
